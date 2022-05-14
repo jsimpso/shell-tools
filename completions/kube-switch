@@ -1,0 +1,12 @@
+_kube-switch-configs()
+{
+  _available_configs=$(ls ~/.kube/configs/)
+
+  local cur
+  COMPREPLY=()
+  cur="${COMP_WORDS[COMP_CWORD]}"
+  COMPREPLY=( $(compgen -W "${_available_configs}" -- ${cur}) )
+
+  return 0
+}
+complete -o nospace -F _kube-switch-configs kube-switch

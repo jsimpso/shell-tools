@@ -1,0 +1,14 @@
+#!/bin/sh
+
+if [ -z "$1" ]; then
+    echo "Usage: kube-switch <environment>" 1>&2
+    exit 1
+fi
+
+if [ ! -f ~/.kube/configs/"$1" ]; then
+    echo "~/.kube/configs/$1 doesn't exist!"
+    exit 1
+fi
+
+cp ~/.kube/configs/$1 ~/.kube/config
+echo "~/.kube/configs/$1 now active"

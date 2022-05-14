@@ -10,5 +10,5 @@ if [ ! -f ~/.kube/configs/"$1" ]; then
     exit 1
 fi
 
-cp ~/.kube/configs/$1 ~/.kube/config
+ln -sf ~/.kube/configs/$1 ~/.kube/config
 echo "~/.kube/configs/$1 now active"
